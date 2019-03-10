@@ -5,6 +5,7 @@ A basic chat bot for the voice and text chat app [Discord](https://discordapp.co
 * Finding strings with regex
 * Asynchronous programming
 * Time formatting syntax
+* How to use keyword arguments
 
 ## Installation
 Rename `config.py-example` to `config.py`\
