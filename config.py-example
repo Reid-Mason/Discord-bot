@@ -1,0 +1,12 @@
+# install - pip install -U git+https://github.com/Rapptz/discord.py@rewrite#egg=discord.py[voice]
+
+# The token for the bot you want to use
+token = "BOT_TOKEN" # Required
+
+# The command prefix for the bot
+command_prefix = '?'
+# A small description for the bot
+description = "A bot that does lots of random things, some more useful that others."
+
+# The amount of time to display temporary messages in seconds
+temp_msg_time = 10
