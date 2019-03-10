@@ -1,7 +1,7 @@
 import difflib
 import re
 
-from colorama import Back, Fore
+from colorama import Fore, init
 from discord.ext import commands
 from discord.ext.commands import Bot
 
@@ -11,13 +11,16 @@ import utils
 from config import TEMP_MSG_TIME
 from utils import log
 
+# Initialise colorama
+init()
+
 bot = Bot(command_prefix=commands.when_mentioned_or(cfg.command_prefix), description=cfg.description)
 
 
 @bot.event
 async def on_ready():
   """ Function runs when the bot has fully started and connected """
-  log(f"\r----- {bot.user.name} online -----", Back.GREEN, Fore.BLACK)
+  log(f"\r----- {bot.user.name} online -----", Fore.GREEN)
 
 
 @bot.event
@@ -51,9 +54,10 @@ async def on_command_error(ctx, error):
     await ctx.send(f"```{error}```", delete_after=TEMP_MSG_TIME)
 
 
-log("----- Initializing -----", Back.CYAN, Fore.BLACK)
+log("----- Initializing -----", Fore.CYAN)
 # Load all cogs from the cogs file
 utils.load_cogs(bot, 'cogs')
+log("----- Initializing -----", Fore.GREEN)
 
-log(f"\n\n----- Starting bot -----", Back.YELLOW, Fore.BLACK)
+log(f"\n\n----- Starting bot -----", Fore.CYAN)
 bot.run(cfg.token)
